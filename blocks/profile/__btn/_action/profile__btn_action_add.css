@@ -1,0 +1,10 @@
+.profile__btn_action_add {
+  background-image: url(../../../../images/Vector2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  width: 150px;
+  height: 50px;
+  align-self: center;
+}

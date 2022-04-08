@@ -1,0 +1,11 @@
+.profile__btn_action_edit {
+  background-image: url(../../../../images/Vector.png);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border: 1px solid #fff;
+  width: 24px;
+  height: 24px;
+  align-self: center;
+  justify-self: flex-end;
+  
+}
