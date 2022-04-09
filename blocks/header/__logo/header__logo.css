@@ -2,3 +2,17 @@
   display: inline-block;
   margin-bottom: 45px;
 }
+
+
+@media (max-width: 900px) {
+  .header__logo {
+    margin-left: 27px;
+    margin-bottom: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__logo {
+    margin-bottom: 32px;
+  }
+}

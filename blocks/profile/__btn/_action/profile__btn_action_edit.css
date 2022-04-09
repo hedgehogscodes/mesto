@@ -6,6 +6,11 @@
   width: 24px;
   height: 24px;
   align-self: center;
-  justify-self: flex-end;
-  
+  justify-self: center;
+}
+
+@media (max-width: 720px) {
+  .profile__btn_action_edit {
+    justify-self: flex-end;
+  }
 }

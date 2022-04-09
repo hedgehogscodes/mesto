@@ -15,3 +15,14 @@
 .popup__btn_action_close:hover {
   opacity: .6;
 }
+
+
+@media (max-width: 480px) {
+  .popup__btn_action_close {
+    width: 20px;
+    height: 20px;
+    right: 0;
+    top: -36px;
+    background-image: url('../../../../images/Close\ Icon480.png');
+  }
+}
