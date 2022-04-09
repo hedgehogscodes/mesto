@@ -1,0 +1,18 @@
+.profile__avatar {
+  background-image: url('../../../images/EjAvatar.jpg');
+  min-width: 120px;
+  min-height: 120px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  align-self: flex-start;
+  margin: 0 30px 0 0;
+}
+
+@media (max-width: 720px) {
+  .profile__avatar {
+    margin: 0;
+    align-self: center;
+  }
+}

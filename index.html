@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,86 @@
     <header class="header">
       <a href="#" class="header__logo"><img src="./images/logo.svg" alt="Логотип Место"></a>
     </header>
+    <main class="contaner-inner">
+      <sectoion class="profile">
+        <div class="profile__avatar"></div>
+        <div class="profile__info">
+            <h1 class="profile__name">Hedgehog</h1>
+            <button class="profile__btn profile__btn_action_edit"></button>
+            <p class="profile__status">Привет, я программист Ежик</p>
+        </div>
+        <button class="profile__btn profile__btn_action_add"></button>
+      </sectoion>
+      <sectoion class="photo-grid">
+        <ul class="photo-grid__list">
+          <li class="photo-grid__item">
+            <img src="./images/Image-group/Ej1.jpg" alt="Фотография из галереи" class="photo-grid__image">
+            <div class="photo-grid__info">
+              <h2 class="photo-grid__title">Тут я родился</h2>
+              <button class="photo-grid__btn photo-grid__btn_action_like"></button>
+            </div>
+          </li>
+          <li class="photo-grid__item">
+            <img src="./images/Image-group/Ej2.jpg" alt="Фотография из галереи" class="photo-grid__image">
+            <div class="photo-grid__info">
+              <h2 class="photo-grid__title">Тут играю</h2>
+              <button class="photo-grid__btn photo-grid__btn_action_like"></button>
+            </div>
+          </li>
+          <li class="photo-grid__item">
+            <img src="./images/Image-group/Ej3.jpg" alt="Фотография из галереи" class="photo-grid__image">
+            <div class="photo-grid__info">
+              <h2 class="photo-grid__title">А тут мне 8</h2>
+              <button class="photo-grid__btn photo-grid__btn_action_like"></button>
+            </div>
+          </li>
+          <li class="photo-grid__item">
+            <img src="./images/Image-group/Ej4.jpg" alt="Фотография из галереи" class="photo-grid__image">
+            <div class="photo-grid__info">
+              <h2 class="photo-grid__title">А тут я сплю</h2>
+              <button class="photo-grid__btn photo-grid__btn_action_like"></button>
+            </div>
+          </li>
+          <li class="photo-grid__item">
+            <img src="./images/Image-group/Ej5.jpg" alt="Фотография из галереи" class="photo-grid__image">
+            <div class="photo-grid__info">
+              <h2 class="photo-grid__title">Тут я еду</h2>
+              <button class="photo-grid__btn photo-grid__btn_action_like"></button>
+            </div>
+          </li>
+          <li class="photo-grid__item">
+            <img src="./images/Image-group/Ej6.jpg" alt="Фотография из галереи" class="photo-grid__image">
+            <div class="photo-grid__info">
+              <h2 class="photo-grid__title">А тут я усталь</h2>
+              <button class="photo-grid__btn photo-grid__btn_action_like photo-grid__btn_active"></button>
+            </div>
+          </li>
+        </ul>
+      </sectoion>
+    </main>
+    <footer class="footer contaner-inner">
+      <p class="footer__author">&copy; 2022. Жора Погосян</p>
+    </footer>
   </div>
+<<<<<<< HEAD
   <main></main>
+=======
+
+  <div class="popup">
+    <form class="popup__container" name="editProfileForm">
+      <button class="popup__btn popup__btn_action_close"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <label class="popup__form_label">
+        <input type="text" class="popup__input popup__input_type_name" placeholder="Имя">
+      </label>
+      <label class="popup__form_label">
+        <input type="text" class="popup__input popup__input_type_status" placeholder="Статус">
+      </label>
+      <button value="Сохранить" class="popup__btn popup__btn_action_save">Сохранить</button>
+    </form>
+  </div>
+
+  <script src="./scripts/index.js"></script>
+>>>>>>> develop
 </body>
 </html>
