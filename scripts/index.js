@@ -25,8 +25,10 @@ function popupSaveEdit (evt) {
 
 function popupOverlayClick (evt) {
   evt.preventDefault(); 
-  if(evt.target === evt.currentTarget) {
-    popupEditOpenClose(evt);
+  if ((nameInput !== document.activeElement) && (jobInput !== document.activeElement)){
+    if(evt.target === evt.currentTarget) {
+      popupEditOpenClose(evt);
+    }
   }
 }
 
