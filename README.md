@@ -16,4 +16,4 @@
 6. Media queries.
 7. BEM.
 
-* [Ссылка на GitHub Pages](https://hedgehogscodes.github.io/russian-travel/)
+* [Ссылка на GitHub Pages](https://hedgehogscodes.github.io/mesto/)
