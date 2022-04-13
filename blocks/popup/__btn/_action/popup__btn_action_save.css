@@ -13,6 +13,13 @@
   transition: opacity .2s ease-in-out;
 }
 
+@media (max-width: 480px) {
+  .popup__btn_action_save {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
 .popup__btn_action_save:hover {
   opacity: .8;
 }

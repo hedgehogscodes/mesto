@@ -16,3 +16,9 @@
     width: 100%;
   }
 }
+
+@media (max-width: 480px) {
+  .profile__btn_action_add {
+    background-image: url('../../../../images/Vector2-s.png');
+  }
+}

@@ -16,3 +16,9 @@
     grid-template-columns: minmax(200px, min-content) 34px;
   }
 }
+
+@media (max-width: 480px) {
+  .profile__info {
+    grid-template-columns: minmax(200px, min-content) 28px;
+  }
+}
