@@ -1,7 +1,7 @@
 .header {
   max-width: 882px;
   padding: 45px 0 0;
-  border-bottom: 1px solid rgba(54,54,54,.7);;
+  border-bottom: 1px solid rgba(54,54,54,.7);
 }
 
 @media (max-width: 900px) {
