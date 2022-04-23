@@ -33,21 +33,21 @@
   </div>
   
   <div class="popup popup_edit">
-    <form class="popup__container" name="editProfileForm">
+    <form class="popup__container popup__edit-form" name="editProfileForm">
       <button type="button" class="popup__btn popup__btn_action_close"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <label class="popup__form-label">
-        <input type="text" class="popup__input popup__input_type_name" placeholder="Имя">
+        <input type="text" class="popup__input popup__input_type_name" placeholder="Имя" required>
       </label>
       <label class="popup__form-label">
-        <input type="text" class="popup__input popup__input_type_status" placeholder="Статус">
+        <input type="text" class="popup__input popup__input_type_status" placeholder="Статус" required>
       </label>
-      <button type="button" value="Сохранить" class="popup__btn popup__btn_action_save">Сохранить</button>
+      <button type="submit" value="Сохранить" class="popup__btn popup__btn_action_save">Сохранить</button>
     </form>
   </div>
 
   <div class="popup popup_add">
-    <form class="popup__container" name="addProfileForm">
+    <form class="popup__container popup__add-form" name="addProfileForm">
       <button type="button" class="popup__btn popup__btn_action_close"></button>
       <h2 class="popup__title">Новое Место</h2>
       <label class="popup__form-label">
@@ -56,7 +56,7 @@
       <label class="popup__form-label">
         <input type="url" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" required>
       </label>
-      <button type="submit" value="Создать" class="popup__btn popup__btn_action_create">Создать</button>
+      <button class="popup__btn popup__btn_action_create" type="submit" aria-label="Создать карточку">Создать</button>
     </form>
   </div>
 
