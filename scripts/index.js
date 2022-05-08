@@ -140,7 +140,7 @@ function deletePhotoCard (evt) {
   evt.target.closest('.photo-grid__item').remove();
 };
 
-function LikePhotoCard (evt) {
+function likePhotoCard (evt) {
   evt.target.classList.toggle('photo-grid__btn_active');
 };
 
@@ -157,8 +157,8 @@ function createCard(cardData) {
   const deleteButton = newPhotoCard.querySelector('.photo-grid__delete-button');
   deleteButton.addEventListener('click', deletePhotoCard);
 
-  const LikeButton = newPhotoCard.querySelector('.photo-grid__btn_action_like');
-  LikeButton.addEventListener('click', LikePhotoCard);
+  const likeButton = newPhotoCard.querySelector('.photo-grid__btn_action_like');
+  likeButton.addEventListener('click', likePhotoCard);
 
   linkPhotoCard.addEventListener('click', openPopupViewPhoto);
 
