@@ -33,31 +33,39 @@
   </div>
   
   <div class="popup popup_edit">
-    <form class="popup__container popup__edit-form" name="editProfileForm">
-      <button type="button" class="popup__btn popup__btn_action_close"></button>
+    <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <label class="popup__form-label">
-        <input type="text" class="popup__input popup__input_type_name" placeholder="Имя" required>
-      </label>
-      <label class="popup__form-label">
-        <input type="text" class="popup__input popup__input_type_status" placeholder="Статус" required>
-      </label>
-      <button type="submit" value="Сохранить" class="popup__btn popup__btn_action_save">Сохранить</button>
-    </form>
+      <button type="button" class="popup__btn popup__btn_action_close"></button>
+      <form class="popup__form popup__edit-form" name="editProfileForm" novalidate>
+        <label class="popup__form-label">
+          <input id="name" type="text" class="popup__input popup__input_type_name" autocomplete="off" placeholder="Имя" minlength="2" maxlength="40" required>
+          <span id="name-error" class=""></span>
+        </label>
+        <label class="popup__form-label">
+          <input id="status" type="text" class="popup__input popup__input_type_status" autocomplete="off" placeholder="Статус" minlength="2" maxlength="200" required >
+          <span id="status-error" class=""></span>
+        </label>
+        <button type="submit" value="Сохранить" class="popup__btn popup__btn_action_save">Сохранить</button>
+      </form>
+    </div>
   </div>
 
   <div class="popup popup_add">
-    <form class="popup__container popup__add-form" name="addProfileForm">
+    <div class="popup__container">
       <button type="button" class="popup__btn popup__btn_action_close"></button>
       <h2 class="popup__title">Новое Место</h2>
-      <label class="popup__form-label">
-        <input type="text" class="popup__input popup__input_type_title" placeholder="Название" required>
-      </label>
-      <label class="popup__form-label">
-        <input type="url" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" required>
-      </label>
-      <button class="popup__btn popup__btn_action_create" type="submit" aria-label="Создать карточку">Создать</button>
-    </form>
+      <form class="popup__form popup__add-form" name="addProfileForm" novalidate>
+        <label class="popup__form-label">
+          <input id="title" type="text" class="popup__input popup__input_type_title" autocomplete="off" placeholder="Название" minlength="2" maxlength="30" required>
+          <span id="title-error" class=""></span>
+        </label>
+        <label class="popup__form-label">
+          <input id="link" type="url" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" required>
+          <span id="link-error" class=""></span>
+        </label>
+        <button class="popup__btn popup__btn_action_create" type="submit" aria-label="Создать карточку">Создать</button>
+      </form>
+    </div>
   </div>
 
   <div class="popup popup_photo-view">
@@ -79,5 +87,6 @@
     </li>
   </template>
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
 </body>
 </html>
