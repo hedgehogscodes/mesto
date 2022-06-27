@@ -40,7 +40,6 @@ const cardAddButton = document.querySelector('.profile__btn_action_add');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__status');
 const photoList = document.querySelector('.photo-grid__list');
-const photoListTemplate = document.querySelector("#card-template").content.querySelector(".photo-grid__item");
 
 ///////////////PopopEdit/////////////
 const popupEditProfile = document.querySelector('.popup_edit');
@@ -66,3 +65,7 @@ const popupViewImg = popupViewPhoto.querySelector('.popup__img');
 const popupImgInfo = popupViewPhoto.querySelector('.popup__img-info');
 const popupViewPhotoCloseButton = popupViewPhoto.querySelector('.popup__btn_action_close');
 ////////////////////////////////////
+
+export {cardList, classObject, page, profileInfoEditButton, cardAddButton, profileName, profileJob, photoList,popupEditProfile, 
+        popupEditProfileForm, nameInput, jobInput,popupEditProfileCloseButton,popupEditSubmit,popupAddCard,popupAddCardForm,titleInput,
+        linkInput,popupAddCardCloseButton,popupAddSubmit,popupViewPhoto,popupViewImg,popupImgInfo,popupViewPhotoCloseButton};

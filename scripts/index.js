@@ -1,10 +1,29 @@
+import {cardList, classObject, page, profileInfoEditButton, cardAddButton, profileName, profileJob, photoList,popupEditProfile, 
+  popupEditProfileForm, nameInput, jobInput,popupEditProfileCloseButton,popupEditSubmit,popupAddCard,popupAddCardForm,titleInput,
+  linkInput,popupAddCardCloseButton,popupAddSubmit,popupViewPhoto,popupViewImg,popupImgInfo,popupViewPhotoCloseButton} from "./constants.js";
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
+
+const editFormValidator = new FormValidator(classObject, popupEditProfileForm);
+editFormValidator.enableValidation();
+
+const addFormValidator = new FormValidator(classObject, popupAddCardForm);
+addFormValidator.enableValidation();
+
 function renderHideInputError(popup) {
+
   const inputsList = popup.querySelectorAll('.popup__input');
+
   if (inputsList.length !== 0){
     for(let i = 0; i<inputsList.length; i++) {
-      hideInputError(popup.querySelector('.popup__form'), inputsList[i], classObject);
+      if(popup === popupAddCard ){
+        addFormValidator.hideInputError(inputsList[i])
+      }else{
+        editFormValidator.hideInputError(inputsList[i])
+      }
     }
   }
+
 }
 
 function addingeventkeydown() {
@@ -27,10 +46,9 @@ function togglePopup (popup) {
     addingeventkeydown();
   } else {
     removingeventkeydown();
-    renderHideInputError(popup);// внутри функции проверяется есть ли у попапа инпуты 
+    renderHideInputError(popup); 
   }
 }
-
 
 function closePopupRender (evt) { 
   togglePopup(evt.target.closest('.popup'));
@@ -46,18 +64,17 @@ function keyHandler (evt) {
 function openPopupEditProfile (evt) { 
   togglePopup(popupEditProfile);
     getProfileInfo();
-    toggleButtonState(Array.from(popupEditProfileForm.querySelectorAll('.popup__input')), popupEditSubmit, classObject);
 }
 
 function openPopupAddCard (evt) { 
   togglePopup(popupAddCard);
 }
 
-function openPopupViewPhoto (evt) { 
+function openPopupViewPhoto (name, link) { 
   togglePopup(popupViewPhoto);
-    popupViewImg.src = evt.target.src;
-    popupImgInfo.textContent = evt.target.closest('.photo-grid__item').querySelector('.photo-grid__title').textContent;
-    popupViewImg.alt = 'Фотография: ' + popupImgInfo.textContent;
+    popupViewImg.src = link;
+    popupImgInfo.textContent = name;
+    popupViewImg.alt = 'Фотография: ' + name;
 }
 
 function clickOverlayPopup (evt) {
@@ -73,52 +90,26 @@ function saveProfileInfo (evt) {
   closePopupRender(evt);
 }
 
-function deletePhotoCard (evt) {
-  evt.target.closest('.photo-grid__item').remove();
-};
-
-function likePhotoCard (evt) {
-  evt.target.classList.toggle('photo-grid__btn_active');
-};
-
-function createCard(cardData) {
-  const newPhotoCard = photoListTemplate.cloneNode(true);
-
-  const titlePhotoCard = newPhotoCard.querySelector('.photo-grid__title');
-  titlePhotoCard.textContent = cardData.title;
-
-  const linkPhotoCard = newPhotoCard.querySelector('.photo-grid__image');
-  linkPhotoCard.src = cardData.link;
-  linkPhotoCard.alt = 'Фотография:' + cardData.title;
-
-  const deleteButton = newPhotoCard.querySelector('.photo-grid__delete-button');
-  deleteButton.addEventListener('click', deletePhotoCard);
-
-  const likeButton = newPhotoCard.querySelector('.photo-grid__btn_action_like');
-  likeButton.addEventListener('click', likePhotoCard);
-
-  linkPhotoCard.addEventListener('click', openPopupViewPhoto);
-
-  return newPhotoCard;
-}
-
 function renderCard(card, container) {
   container.prepend(card);
 }  
 
 function renderCardInfo(evt) {
   evt.preventDefault(); 
-  renderCard(createCard({title: titleInput.value, link: linkInput.value }), photoList)
+  const cardItem = new Card({title: titleInput.value, link: linkInput.value }, "#card-template", openPopupViewPhoto);
+  renderCard(cardItem.generateCard(), photoList)
   popupAddCardForm.reset();
   togglePopup(popupAddCard);
-  inactivateButton(popupAddSubmit, classObject);
+  addFormValidator.inactivateButton();
 }
 
 cardList.forEach((cardData) => {
-  renderCard(createCard(cardData), photoList)
+  const cardItem = new Card(cardData, "#card-template", openPopupViewPhoto);
+  renderCard(cardItem.generateCard(), photoList)
 });
 
 getProfileInfo();
+
 
 ///////////////PopopEditListeners/////////////
 profileInfoEditButton.addEventListener('click', openPopupEditProfile); 
