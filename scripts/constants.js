@@ -47,7 +47,6 @@ const popupEditProfileForm = popupEditProfile.querySelector('.popup__edit-form')
 const nameInput = popupEditProfile.querySelector('.popup__input_type_name');
 const jobInput = popupEditProfile.querySelector('.popup__input_type_status');
 const popupEditProfileCloseButton = popupEditProfile.querySelector('.popup__btn_action_close');
-const popupEditSubmit = popupEditProfileForm.querySelector('.popup__btn')
 ////////////////////////////////////
 
 ///////////////PopopAdd/////////////
@@ -56,7 +55,6 @@ const popupAddCardForm = popupAddCard.querySelector('.popup__add-form');
 const titleInput = popupAddCard.querySelector('.popup__input_type_title');
 const linkInput = popupAddCard.querySelector('.popup__input_type_link');
 const popupAddCardCloseButton = popupAddCard.querySelector('.popup__btn_action_close');
-const popupAddSubmit= popupAddCardForm.querySelector('.popup__btn')
 ////////////////////////////////////
 
 ///////////////PopopShow/////////////
@@ -67,5 +65,5 @@ const popupViewPhotoCloseButton = popupViewPhoto.querySelector('.popup__btn_acti
 ////////////////////////////////////
 
 export {cardList, classObject, page, profileInfoEditButton, cardAddButton, profileName, profileJob, photoList,popupEditProfile, 
-        popupEditProfileForm, nameInput, jobInput,popupEditProfileCloseButton,popupEditSubmit,popupAddCard,popupAddCardForm,titleInput,
-        linkInput,popupAddCardCloseButton,popupAddSubmit,popupViewPhoto,popupViewImg,popupImgInfo,popupViewPhotoCloseButton};
+        popupEditProfileForm, nameInput, jobInput,popupEditProfileCloseButton,popupAddCard,popupAddCardForm,titleInput,
+        linkInput,popupAddCardCloseButton,popupViewPhoto,popupViewImg,popupImgInfo,popupViewPhotoCloseButton};

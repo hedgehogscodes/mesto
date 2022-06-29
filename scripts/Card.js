@@ -12,13 +12,12 @@ export default class Card{
   }
 
   _deletePhotoCard (evt) {
-    evt.target.closest('.photo-grid__item').remove();
+    this._element.remove()
   };
   
   _likePhotoCard (evt) {
-    evt.target.classList.toggle('photo-grid__btn_active');
+    this._likeButton.classList.toggle('photo-grid__btn_active');
   };
-
 
   _setEventListeners() {
     this._likeButton.addEventListener('click', this._likePhotoCard.bind(this));

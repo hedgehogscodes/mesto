@@ -13,7 +13,7 @@ export default class FormValidator {
     errorElement.classList.add(this._classObject.errorClass);
   };
   
-  hideInputError(inputElement){
+  _hideInputError(inputElement){
     const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(this._classObject.inputErrorClass);
     errorElement.classList.remove(this._classObject.errorClass);
@@ -24,7 +24,7 @@ export default class FormValidator {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement, inputElement.validationMessage);
     } else {
-      this.hideInputError(inputElement);
+      this._hideInputError(inputElement);
     }
   };
 
@@ -67,4 +67,13 @@ export default class FormValidator {
   enableValidation(){
     this._setEventListeners();
   };
+
+  resetErrors(){
+    if (this._inputList.length !== 0){
+      for(let i = 0; i<this._inputList.length; i++) {
+          this._hideInputError(this._inputList[i]);
+      }
+    }
+  }
+  
 }

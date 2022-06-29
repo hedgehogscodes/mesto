@@ -1,6 +1,6 @@
 import {cardList, classObject, page, profileInfoEditButton, cardAddButton, profileName, profileJob, photoList,popupEditProfile, 
-  popupEditProfileForm, nameInput, jobInput,popupEditProfileCloseButton,popupEditSubmit,popupAddCard,popupAddCardForm,titleInput,
-  linkInput,popupAddCardCloseButton,popupAddSubmit,popupViewPhoto,popupViewImg,popupImgInfo,popupViewPhotoCloseButton} from "./constants.js";
+  popupEditProfileForm, nameInput, jobInput,popupEditProfileCloseButton,popupAddCard,popupAddCardForm,titleInput,
+  linkInput,popupAddCardCloseButton,popupViewPhoto,popupViewImg,popupImgInfo,popupViewPhotoCloseButton} from "./constants.js";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 
@@ -11,27 +11,19 @@ const addFormValidator = new FormValidator(classObject, popupAddCardForm);
 addFormValidator.enableValidation();
 
 function renderHideInputError(popup) {
-
-  const inputsList = popup.querySelectorAll('.popup__input');
-
-  if (inputsList.length !== 0){
-    for(let i = 0; i<inputsList.length; i++) {
-      if(popup === popupAddCard ){
-        addFormValidator.hideInputError(inputsList[i])
-      }else{
-        editFormValidator.hideInputError(inputsList[i])
-      }
-    }
+  if(popup === popupAddCard ){
+    addFormValidator.resetErrors();
+  }else{
+    editFormValidator.resetErrors();
   }
-
 }
 
 function addingeventkeydown() {
-  document.addEventListener('keydown', keyHandler);
+  document.addEventListener('keydown', handleKey);
 }
 
 function removingeventkeydown() {
-  document.removeEventListener('keydown', keyHandler);
+  document.removeEventListener('keydown', handleKey);
 }
 
 function getProfileInfo() {
@@ -39,42 +31,45 @@ function getProfileInfo() {
   jobInput.value = profileJob.textContent;
 }
 
-function togglePopup (popup) { 
-  page.classList.toggle('page_hiddened');
-  popup.classList.toggle('popup_opened');
-  if (popup.classList.contains('popup_opened')) {
-    addingeventkeydown();
-  } else {
-    removingeventkeydown();
-    renderHideInputError(popup); 
-  }
+function openPopup(popup){
+  page.classList.add('page_hiddened');
+  popup.classList.add('popup_opened');
+  addingeventkeydown();
+}
+
+function closePopup(popup){
+  page.classList.remove('page_hiddened');
+  popup.classList.remove('popup_opened');
+  removingeventkeydown();
 }
 
 function closePopupRender (evt) { 
-  togglePopup(evt.target.closest('.popup'));
+  closePopup(evt.target.closest('.popup'));
 }
 
-function keyHandler (evt) {
+function handleKey (evt) { 
   if (evt.key === 'Escape') {
     const popup = document.querySelector('.popup_opened');
-    togglePopup(popup);
+    closePopup(popup);
   }
 }
 
 function openPopupEditProfile (evt) { 
-  togglePopup(popupEditProfile);
-    getProfileInfo();
+  renderHideInputError(popupEditProfile); 
+  openPopup(popupEditProfile);
+  getProfileInfo();
 }
 
 function openPopupAddCard (evt) { 
-  togglePopup(popupAddCard);
+  renderHideInputError(popupAddCard); 
+  openPopup(popupAddCard);
 }
 
 function openPopupViewPhoto (name, link) { 
-  togglePopup(popupViewPhoto);
-    popupViewImg.src = link;
-    popupImgInfo.textContent = name;
-    popupViewImg.alt = 'Фотография: ' + name;
+  openPopup(popupViewPhoto);
+  popupViewImg.src = link;
+  popupImgInfo.textContent = name;
+  popupViewImg.alt = 'Фотография: ' + name;
 }
 
 function clickOverlayPopup (evt) {
@@ -94,18 +89,21 @@ function renderCard(card, container) {
   container.prepend(card);
 }  
 
+function initializeCard(obj, template, func){
+  const cardItem = new Card(obj, template, func);
+  return cardItem;
+}
+
 function renderCardInfo(evt) {
   evt.preventDefault(); 
-  const cardItem = new Card({title: titleInput.value, link: linkInput.value }, "#card-template", openPopupViewPhoto);
-  renderCard(cardItem.generateCard(), photoList)
+  renderCard(initializeCard({title: titleInput.value, link: linkInput.value }, "#card-template", openPopupViewPhoto).generateCard(), photoList)
   popupAddCardForm.reset();
-  togglePopup(popupAddCard);
+  closePopup(popupAddCard);
   addFormValidator.inactivateButton();
 }
 
 cardList.forEach((cardData) => {
-  const cardItem = new Card(cardData, "#card-template", openPopupViewPhoto);
-  renderCard(cardItem.generateCard(), photoList)
+  renderCard(initializeCard(cardData, "#card-template", openPopupViewPhoto).generateCard(), photoList)
 });
 
 getProfileInfo();
