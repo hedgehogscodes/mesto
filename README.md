@@ -15,5 +15,7 @@
 5. Grid CSS.
 6. Media queries.
 7. BEM.
+8. Nested file structure.
+9. Webpack.
 
 * [Ссылка на GitHub Pages](https://hedgehogscodes.github.io/mesto/)
