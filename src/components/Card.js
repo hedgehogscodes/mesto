@@ -25,7 +25,7 @@ export default class Card{
     this._deleteButton.addEventListener('click', this._deletePhotoCard.bind(this));
 
     this._linkPhotoCard.addEventListener('click',  () => {
-      this._openPopupViewPhotoFunc(this._cardTitle, this._cardLink);
+      this._openPopupViewPhotoFunc();
     });
   }
 
