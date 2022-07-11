@@ -21,7 +21,7 @@ const addCardsobj = new Section({ data: []}, photoListSelector);
 ///////////////////////////////////////////////////////////////////////////////////
 
 ///////////////initialize user/////////////////////////////////////////////////////
-const userInfo = new UserInfo('.profile__name', '.profile__status');
+const userInfo = new UserInfo({ nameSelector: '.profile__name', statusSelector: '.profile__status'});
 ///////////////////////////////////////////////////////////////////////////////////
 
 ///////////////initialize popups///////////////////////////////////////////////////
@@ -38,7 +38,7 @@ popupAdd.setEventListeners();
 ///////////////initialize card/////////////////////////////////////////////////////
 function initializeCard(obj, template, func){
   const cardItem = new Card(obj, template, func);
-  return cardItem;
+  return cardItem.generateCard();
 }
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -57,7 +57,7 @@ function openPopupAddCard (evt) {
 }
 
 function saveProfileInfo (inputs) {
-  userInfo.setUserInfo(inputs[0], inputs[1]);
+  userInfo.setUserInfo(inputs.name, inputs.status);
   popupEdit.close();
 }
 
@@ -66,7 +66,7 @@ function renderCard(card,container) {
 }  
 
 function renderCardInfo(inputs) {
-  const cardItem = initializeCard({title: inputs[0], link: inputs[1] }, "#card-template", () => {popupPhoto.open(inputs[0], inputs[1]);}).generateCard();
+  const cardItem = initializeCard(inputs, "#card-template", () => {popupPhoto.open(inputs.title, inputs.link);});
   renderCard(cardItem,addCardsobj)
   popupAddCardForm.reset();
   popupAdd.close();
@@ -78,7 +78,7 @@ function setupCards(cards){
   const cardsobj = new Section({
       data: cards, 
       renderer: (card) => {
-        const cardItem = initializeCard(card, "#card-template", () => {popupPhoto.open(card.title, card.link);}).generateCard();
+        const cardItem = initializeCard(card, "#card-template", () => {popupPhoto.open(card.title, card.link);});
         renderCard(cardItem,cardsobj)
       }
     },

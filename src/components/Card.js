@@ -12,7 +12,8 @@ export default class Card{
   }
 
   _deletePhotoCard (evt) {
-    this._element.remove()
+    this._element.remove();
+    this._element = null;
   };
   
   _likePhotoCard (evt) {

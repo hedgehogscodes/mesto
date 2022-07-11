@@ -37,11 +37,11 @@
       <button type="button" class="popup__btn popup__btn_action_close"></button>
       <form class="popup__form popup__edit-form" name="editProfileForm" novalidate>
         <label class="popup__form-label">
-          <input id="name" type="text" class="popup__input popup__input_type_name" autocomplete="off" placeholder="Имя" minlength="2" maxlength="40" required>
+          <input name="name" id="name" type="text" class="popup__input popup__input_type_name" autocomplete="off" placeholder="Имя" minlength="2" maxlength="40" required>
           <span id="name-error" class=""></span>
         </label>
         <label class="popup__form-label">
-          <input id="status" type="text" class="popup__input popup__input_type_status" autocomplete="off" placeholder="Статус" minlength="2" maxlength="200" required >
+          <input name="status" id="status" type="text" class="popup__input popup__input_type_status" autocomplete="off" placeholder="Статус" minlength="2" maxlength="200" required >
           <span id="status-error" class=""></span>
         </label>
         <button type="submit" value="Сохранить" class="popup__btn popup__btn_action_save">Сохранить</button>
@@ -55,11 +55,11 @@
       <h2 class="popup__title">Новое Место</h2>
       <form class="popup__form popup__add-form" name="addProfileForm" novalidate>
         <label class="popup__form-label">
-          <input id="title" type="text" class="popup__input popup__input_type_title" autocomplete="off" placeholder="Название" minlength="2" maxlength="30" required>
+          <input name="title" id="title" type="text" class="popup__input popup__input_type_title" autocomplete="off" placeholder="Название" minlength="2" maxlength="30" required>
           <span id="title-error" class=""></span>
         </label>
         <label class="popup__form-label">
-          <input id="link" type="url" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" required>
+          <input name="link" id="link" type="url" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" required>
           <span id="link-error" class=""></span>
         </label>
         <button class="popup__btn popup__btn_action_create" type="submit" aria-label="Создать карточку">Создать</button>
