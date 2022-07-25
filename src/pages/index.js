@@ -149,7 +149,6 @@ function saveProfileInfo(inputs) {
 
 function saveAvatar(input){
   editAvatarButton.textContent = 'Сохранение...';
-  console.log(input);
   api.editAvatar(input.link)
     .then((result) => {
       setupUser(result);
