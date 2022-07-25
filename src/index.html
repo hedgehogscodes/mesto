@@ -15,9 +15,9 @@
       <section class="profile">
         <div class="profile__avatar"></div>
         <div class="profile__info">
-            <h1 class="profile__name">Hedgehog</h1>
+            <h1 class="profile__name"></h1>
             <button type="button" class="profile__btn profile__btn_action_edit"></button>
-            <p class="profile__status">Привет, я программист Ежик</p>
+            <p class="profile__status"></p>
         </div>
         <button type="button" class="profile__btn profile__btn_action_add"></button>
       </section>
@@ -67,11 +67,34 @@
     </div>
   </div>
 
+
+  <div class="popup popup_avatar">
+    <div class="popup__container">
+      <button type="button" class="popup__btn popup__btn_action_close"></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form class="popup__form popup__avatar-from" name="addProfileForm" novalidate>
+        <label class="popup__form-label">
+          <input name="link" id="link" type="url" class="popup__input popup__input_type_link" placeholder="Ссылка на аватар" required>
+          <span id="link-error" class=""></span>
+        </label>
+        <button type="submit" value="Сохранить" class="popup__btn popup__btn_action_save">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
   <div class="popup popup_photo-view">
     <div class="popup__photo-info">
       <img class="popup__img" src="#" alt="Фотография: Тут я родился">
       <p class="popup__img-info"></p>
       <button type="button" class="popup__btn popup__btn_action_close"></button>
+    </div>
+  </div>
+
+  <div class="popup popup_confirm">
+    <div class="popup__container">
+      <button type="button" class="popup__btn popup__btn_action_close"></button>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <button class="popup__btn popup__btn_action_confirm" type="submit" aria-label="Да">Да</button>
     </div>
   </div>
 
@@ -81,7 +104,10 @@
       <button type="button" class="photo-grid__delete-button" aria-label="Удалить карточку"></button>
       <div class="photo-grid__info">
         <h2 class="photo-grid__title"></h2>
-        <button type="button" class="photo-grid__btn photo-grid__btn_action_like"></button>
+        <div class="photo-grid__like-container">
+          <button type="button" class="photo-grid__btn photo-grid__btn_action_like"></button>
+          <p class="photo-grid__like-amount">5</p>
+        </div>
       </div>
     </li>
   </template>

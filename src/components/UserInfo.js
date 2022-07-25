@@ -1,7 +1,8 @@
 export default class UserInfo {
-  constructor({nameSelector, statusSelector}) {
+  constructor({nameSelector, statusSelector, avatarSelector}) {
     this._name = document.querySelector(nameSelector);
     this._status = document.querySelector(statusSelector);
+    this._avatar = document.querySelector(avatarSelector)
   }
 
   getUserInfo() {
@@ -12,9 +13,11 @@ export default class UserInfo {
     return userData;
   }
 
-  setUserInfo(name,status) {
+  setUserInfo(name,status,userid,avatar) {
     this._name.textContent = name;
     this._status.textContent = status;
+    this.id = userid;
+    this._avatar.style.backgroundImage = `url(${avatar})`;
   }
 
 }

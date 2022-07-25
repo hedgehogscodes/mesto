@@ -9,8 +9,13 @@ export default class Section {
     this._container.innerHTML = '';
   }
 
-  addItem(element) {
-    this._container.prepend(element);
+  addItem(element, startpos) {
+    if(startpos == true){
+      this._container.append(element);
+    }
+    else{
+      this._container.prepend(element);
+    }
   }
 
   renderItems() {
