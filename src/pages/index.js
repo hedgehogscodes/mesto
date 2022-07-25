@@ -130,10 +130,10 @@ function deletePhotoCard(item){
     .then(() => {
       item._element.remove();
       item._element = null;
-      confirmButton.textContent = 'Да';
       popupConfirm.close();
     })
-    .catch(err => console.log(`Error ${err}`));
+    .catch(err => console.log(`Error ${err}`))
+    .finally (() => { confirmButton.textContent = 'Да'; })
 }
 
 function saveProfileInfo(inputs) {
@@ -141,10 +141,10 @@ function saveProfileInfo(inputs) {
   api.saveUserInfo(inputs)
     .then((result) => {
       setupUser(result);
-      saveEdit.textContent = 'Сохранить';
       popupEdit.close();
     })
-    .catch(err => console.log(`Error ${err}`));
+    .catch(err => console.log(`Error ${err}`))
+    .finally (() => { saveEdit.textContent = 'Сохранить'; })
 }
 
 function saveAvatar(input){
@@ -152,10 +152,10 @@ function saveAvatar(input){
   api.editAvatar(input.link)
     .then((result) => {
       setupUser(result);
-      editAvatarButton.textContent = 'Сохранить';
       popupAvatar.close();
     })
-    .catch(err => console.log(`Error ${err}`));
+    .catch(err => console.log(`Error ${err}`))
+    .finally (() => { editAvatarButton.textContent = 'Сохранить'; })
 }
 
 function renderCard(card,container,startpos) {
@@ -167,13 +167,13 @@ function renderCardInfo(inputs) {
   api.addCard(inputs)
     .then((result) => {
       const cardItem = initializeCard(result, "#card-template", () => {popupPhoto.open(result.name, result.link);});
-      addCardButton.textContent = 'Создать';
       renderCard(cardItem,addCardsobj,false)
       popupAddCardForm.reset();
       popupAdd.close();
       addFormValidator.inactivateButton();
     })
-    .catch(err => console.log(`Error ${err}`));
+    .catch(err => console.log(`Error ${err}`))
+    .finally (() => { addCardButton.textContent = 'Создать'; })
 }
 
 

@@ -5,6 +5,14 @@ export default class Api {
     this._contentType = options.headers["Content-Type"];
   }
 
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+
+    return Promise.reject(`Ошибка: ${res.status}`);
+  }
+
   //////////////////Setup User Info////////////////////////////////////
   getUserInfo() {
     return fetch(`${this._token}/users/me`, {
@@ -13,13 +21,7 @@ export default class Api {
           authorization: this._authorization
         }
       })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
+      .then(this._checkResponse)
   }
   /////////////////////////////////////////////////////////////////////
 
@@ -31,13 +33,7 @@ export default class Api {
           authorization: this._authorization
         }
       })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._checkResponse);
   }
   /////////////////////////////////////////////////////////////////////
 
@@ -54,13 +50,7 @@ export default class Api {
           about: status
         })
       })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._checkResponse);
   }
   /////////////////////////////////////////////////////////////////////
 
@@ -77,13 +67,7 @@ export default class Api {
           link: link
         })
       })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._checkResponse);
   }
   /////////////////////////////////////////////////////////////////////
 
@@ -96,13 +80,7 @@ export default class Api {
           'Content-Type': this._contentType
         }
       })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._checkResponse);
   }
   /////////////////////////////////////////////////////////////////////
 
@@ -115,13 +93,7 @@ export default class Api {
           'Content-Type': this._contentType
         }
       })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._checkResponse);
   }
   /////////////////////////////////////////////////////////////////////
 
@@ -134,13 +106,7 @@ export default class Api {
           'Content-Type': this._contentType
         }
       })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._checkResponse);
   }
   /////////////////////////////////////////////////////////////////////
 
@@ -156,13 +122,7 @@ export default class Api {
           avatar: `${link}`
         })
       })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._checkResponse);
   }
    /////////////////////////////////////////////////////////////////////
 }
